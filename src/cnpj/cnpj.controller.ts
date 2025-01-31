@@ -15,7 +15,6 @@ export class CnpjController {
   @Get('validar-alfanumerico')
   @UsePipes(new ValidationPipe({ transform: true }))
   validarCNPJAlfanumerico(@Query() cnpjDto: CnpjDto): { valido: boolean } {
-    console.log('Recebido DTO:', cnpjDto);
     const valido = this.cnpjService.validarCNPJAlfanumerico(cnpjDto.cnpj);
     return { valido };
   }
